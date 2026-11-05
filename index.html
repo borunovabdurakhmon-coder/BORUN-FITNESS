@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BORUN FITNESS</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f8f6;
+  color: #18251e;
+}
+
+header {
+  background: white;
+  padding: 22px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 12px #00000008;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 800;
+  color: #16a34a;
+}
+
+.profile {
+  background: #e6f7ec;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+main {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 27px;
+  margin: 15px 0 8px;
+}
+
+.subtitle {
+  color: #78847c;
+  margin-bottom: 22px;
+}
+
+.hero {
+  background: linear-gradient(135deg,#16a34a,#54c879);
+  color: white;
+  padding: 25px;
+  border-radius: 22px;
+  margin-bottom: 25px;
+}
+
+.hero h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 13px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hero button {
+  background: white;
+  color: #159447;
+}
+
+.section-title {
+  font-size: 20px;
+  margin: 25px 0 15px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+}
+
+.stat {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 25px;
+  color: #16a34a;
+  margin-top: 8px;
+}
+
+.stat small {
+  color: #829087;
+}
+
+.workouts {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+}
+
+.workout {
+  background: white;
+  padding: 17px;
+  border-radius: 17px;
+}
+
+.workout .emoji {
+  font-size: 32px;
+}
+
+.workout h3 {
+  margin: 10px 0 6px;
+}
+
+.workout p {
+  color: #849087;
+  font-size: 13px;
+}
+
+.workout button {
+  background: #e9f8ee;
+  color: #159447;
+  width: 100%;
+  margin-top: 13px;
+}
+
+.timer {
+  background: white;
+  padding: 22px;
+  border-radius: 18px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+#time {
+  font-size: 42px;
+  font-weight: bold;
+  color: #16a34a;
+  margin: 15px;
+}
+
+.timer button {
+  background: #16a34a;
+  color: white;
+  margin: 4px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #8a968e;
+  font-size: 13px;
+}
+
+@media(max-width:380px) {
+  .workouts {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BORUN FITNESS 💪</div>
+  <div class="profile">👤</div>
+</header>
+
+<main>
+
+<h1>Привет! 👋</h1>
+<p class="subtitle">Добро пожаловать в BORUN FITNESS</p>
+
+<section class="hero">
+  <h2>Время двигаться! 🔥</h2>
+  <p>Начни с небольшой тренировки дома.
+  Твоё здоровье и хорошее самочувствие важны!</p>
+  <button onclick="startWorkout()">Начать тренировку</button>
+</section>
+
+<h2 class="section-title">📊 Твоя активность</h2>
+
+<div class="stats">
+  <div class="stat">
+    <small>Тренировки</small>
+    <strong id="count">0</strong>
+  </div>
+  <div class="stat">
+    <small>Минуты активности</small>
+    <strong id="minutes">0</strong>
+  </div>
+</div>
+
+<h2 class="section-title">💪 Упражнения</h2>
+
+<div class="workouts">
+
+  <div class="workout">
+    <div class="emoji">🏃</div>
+    <h3>Разминка</h3>
+    <p>5 минут · Лёгкий старт</p>
+    <button onclick="choose(300)">Начать</button>
+  </div>
+
+  <div class="workout">
+    <div class="emoji">🦵</div>
+    <h3>Приседания</h3>
+    <p>30 секунд · Спокойный темп</p>
+    <button onclick="choose(30)">Начать</button>
+  </div>
+
+  <div class="workout">
+    <div class="emoji">🧘</div>
+    <h3>Растяжка</h3>
+    <p>3 минуты · Мягкие движения</p>
+    <button onclick="choose(180)">Начать</button>
+  </div>
+
+  <div class="workout">
+    <div class="emoji">🚶</div>
+    <h3>Ходьба на месте</h3>
+    <p>2 минуты · Лёгкая активность</p>
+    <button onclick="choose(120)">Начать</button>
+  </div>
+
+</div>
+
+<div class="timer">
+  <h2>⏱️ Таймер тренировки</h2>
+  <div id="time">00:00</div>
+  <button onclick="startTimer()">Старт</button>
+  <button onclick="pauseTimer()">Пауза</button>
+  <button onclick="resetTimer()">Сброс</button>
+  <p id="message" style="margin-top:15px;color:#78847c">
+    Выбери упражнение
+  </p>
+</div>
+
+</main>
+
+<footer>
+  BORUN FITNESS © 2026<br>
+  Тренируйся безопасно. Не забывай отдыхать!
+</footer>
+
+<script>
+let seconds = 0;
+let remaining = 0;
+let interval = null;
+let count = 0;
+let minutes = 0;
+
+function showTime() {
+  let m = Math.floor(seconds / 60);
+  let s = seconds % 60;
+
+  document.getElementById("time").textContent =
+    String(m).padStart(2,"0") + ":" +
+    String(s).padStart(2,"0");
+}
+
+function choose(value) {
+  pauseTimer();
+  remaining = value;
+  seconds = value;
+  showTime();
+  document.getElementById("message").textContent =
+    "Упражнение выбрано. Нажми Старт.";
+}
+
+function startTimer() {
+  if (interval) return;
+
+  if (seconds <= 0) {
+    document.getElementById("message").textContent =
+      "Сначала выбери упражнение.";
+    return;
+  }
+
+  document.getElementById("message").textContent =
+    "Тренировка идёт! 💚";
+
+  interval = setInterval(() => {
+    seconds--;
+    showTime();
+
+    if (seconds <= 0) {
+      pauseTimer();
+      count++;
+      minutes += Math.round(remaining / 60);
+      document.getElementById("count").textContent = count;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("message").textContent =
+        "Отлично! Время упражнения закончилось 🎉";
+    }
+  },1000);
+}
+
+function pauseTimer() {
+  clearInterval(interval);
+  interval = null;
+}
+
+function resetTimer() {
+  pauseTimer();
+  seconds = remaining;
+  showTime();
+  document.getElementById("message").textContent =
+    "Таймер сброшен.";
+}
+
+function startWorkout() {
+  choose(300);
+  startTimer();
+}
+</script>
+
+</body>
+</html>
